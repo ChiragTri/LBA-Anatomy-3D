@@ -23,6 +23,7 @@ This project is built upon multiple open-source works:
 
 ## License
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
+
 This project is licensed under CC-BY-SA 4.0. Any derivative works must:
 1. Provide appropriate attribution to all sources listed above
 2. Be distributed under the same license terms
