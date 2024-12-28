@@ -9,6 +9,9 @@ This project is built upon multiple open-source works:
 
 ### Primary Sources
 - [Z-Anatomy](https://github.com/LluisV/Z-Anatomy) created by Lluís Vinent Juanico (CC-BY-SA 4.0)
+    - Additional Contributors: 
+        - Gauthier Kervyn (3D, anatomy, promotion)
+        - Marcin Zielinski (Blender add-on)
 - BodyParts3D by The Database Center for Life Science (CC-BY-SA 2.1 Japan)
 
 ### Additional Model Sources
