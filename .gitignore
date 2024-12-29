@@ -67,3 +67,9 @@ crashlytics-build.properties
 Icon?
 ehthumbs.db
 Thumbs.db
+
+# Firebase private info
+google-services.json
+google-services-desktop.json
+**/google-services*.json
+**/StreamingAssets/google-services*.json
