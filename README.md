@@ -7,18 +7,12 @@ This project extends Z-Anatomy with exercise mapping and muscle information feat
 
 This project is built upon multiple open-source works:
 
-### Primary Sources
+### Core Components
 - [Z-Anatomy](https://github.com/LluisV/Z-Anatomy) created by Lluís Vinent Juanico (CC-BY-SA 4.0)
     - Additional Contributors: 
         - Gauthier Kervyn (3D, anatomy, promotion)
         - Marcin Zielinski (Blender add-on)
 - BodyParts3D by The Database Center for Life Science (CC-BY-SA 2.1 Japan)
-
-### Additional Model Sources
-- "Brainder" and "White matter" from the University of Washington
-- "Cranial Nerves and Foramina" by University of Dundee, CAHID (CC-BY 4.0)
-- "Anatomy of the Inner Ear" by University of Dundee School of Medicine (CC-BY-NC-SA 4.0)
-- "Kidney" by lissiecowley (CC-BY-NC 4.0)
 
 ### Anatomical Definitions
 - Definitions primarily sourced from Wikipedia (CC-BY-SA 3.0 and GFDL)
