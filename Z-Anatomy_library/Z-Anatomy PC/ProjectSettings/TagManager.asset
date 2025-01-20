@@ -18,6 +18,7 @@ TagManager:
   - References
   - Veins
   - Arteries
+  - Lymph
   layers:
   - Default
   - TransparentFX
