@@ -1,9 +1,12 @@
 # License
+Chirag Trivedi developed this project, derived from Z-Anatomy by Lluís Vinent Juanico and contributors.
 
-Copyright (c) 2024 [Chirag Trivedi]
+[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 
-This work is based on Z-Anatomy by Lluís Vinent Juanico and contributors.
-This work is licensed under Creative Commons Attribution-ShareAlike 4.0 International License.
+For more information about the license of Z-Anatomy's models, please visit the following link: 
+https://docs.google.com/document/d/1peWW_7IiVgTTAwcI_auv38YSJ6qGWRuTMxzzhkRpXIk/edit#heading=h.dxist1y53h8t
+
+=======================================================================
 
 Attribution-ShareAlike 4.0 International
 
