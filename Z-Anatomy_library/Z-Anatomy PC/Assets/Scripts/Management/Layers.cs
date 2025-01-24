@@ -123,18 +123,20 @@ public class Layers : MonoBehaviour
             ReadLayer(ref refsLayersObjects, refsLayers);
 
             bonesSlider.maxValue = bonesLayers.Length;
-
-            if(firstTime)
-                bonesSlider.value = bonesSlider.maxValue;
-
+            nervesSlider.maxValue = nervesLayers.Length;
             ligamentsSlider.maxValue = ligamentsLayers.Length;
+            
+            if(firstTime)
+                bonesSlider.value = bonesLayers.Length;
+                nervesSlider.value = 4;
+                ligamentsSlider.value = 1;
+
             muscularSlider.maxValue = muscularLayers.Length;
             fasciaSlider.maxValue = fasciaLayers.Length;
             arteriesSlider.maxValue = arteriesLayers.Length;
             veinsSlider.maxValue = veinsLayers.Length;
             lymphsSlider.maxValue = lymphsLayers.Length;
             visceralSlider.maxValue = visceralLayers.Length;
-            nervesSlider.maxValue = nervesLayers.Length;
             skinSlider.maxValue = skinLayers.Length;
             refsSlider.maxValue = refsLayers.Length;
 

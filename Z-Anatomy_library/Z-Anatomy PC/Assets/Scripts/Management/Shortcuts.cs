@@ -220,7 +220,10 @@ public class Shortcuts : MonoBehaviour
     {
         if (UserIsWriting() || Keyboard.current.leftCtrlKey.isPressed)
             return;
-        CameraController.instance.CenterView(true);
+        if (CameraController.instance != null)
+            CameraController.instance.CenterView(true);
+        else
+            Debug.LogWarning("CameraController instance is null");
     }
 
     private void ShowLexicon(InputAction.CallbackContext context)
