@@ -110,35 +110,40 @@ public class Layers : MonoBehaviour
                 }
             }
 
-            ReadLayer(ref bonesLayersObjects, bonesLayers);
-            ReadLayer(ref ligamentsLayersObjects, ligamentsLayers);
-            ReadLayer(ref muscularLayersObjects, muscularLayers);
-            ReadLayer(ref fasciaLayersObjects, fasciaLayers);
-            ReadLayer(ref arteriesLayersObjects, arteriesLayers);
-            ReadLayer(ref veinsLayersObjects, veinsLayers);
-            ReadLayer(ref lymphsLayersObjects, lymphsLayers);
-            ReadLayer(ref visceralLayersObjects, visceralLayers);
-            ReadLayer(ref nervesLayersObjects, nervesLayers);
-            ReadLayer(ref skinLayersObjects, skinLayers);
-            ReadLayer(ref refsLayersObjects, refsLayers);
+            // Only read layers for existing systems
+            if(bonesLayers != null && bonesLayers.Length > 0)
+                ReadLayer(ref bonesLayersObjects, bonesLayers);
+            if(ligamentsLayers != null && ligamentsLayers.Length > 0)
+                ReadLayer(ref ligamentsLayersObjects, ligamentsLayers);
+            if(muscularLayers != null && muscularLayers.Length > 0)
+                ReadLayer(ref muscularLayersObjects, muscularLayers);
+            if(nervesLayers != null && nervesLayers.Length > 0)
+                ReadLayer(ref nervesLayersObjects, nervesLayers);
 
-            bonesSlider.maxValue = bonesLayers.Length;
-            nervesSlider.maxValue = nervesLayers.Length;
-            ligamentsSlider.maxValue = ligamentsLayers.Length;
+            // Only set slider values for existing systems
+            if(bonesLayers != null && bonesSlider != null)
+            {
+                bonesSlider.maxValue = bonesLayers.Length;
+                if(firstTime)
+                    bonesSlider.value = bonesLayers.Length;
+            }
             
-            if(firstTime)
-                bonesSlider.value = bonesLayers.Length;
-                nervesSlider.value = 4;
-                ligamentsSlider.value = 1;
-
-            muscularSlider.maxValue = muscularLayers.Length;
-            fasciaSlider.maxValue = fasciaLayers.Length;
-            arteriesSlider.maxValue = arteriesLayers.Length;
-            veinsSlider.maxValue = veinsLayers.Length;
-            lymphsSlider.maxValue = lymphsLayers.Length;
-            visceralSlider.maxValue = visceralLayers.Length;
-            skinSlider.maxValue = skinLayers.Length;
-            refsSlider.maxValue = refsLayers.Length;
+            if(nervesLayers != null && nervesSlider != null)
+            {
+                nervesSlider.maxValue = nervesLayers.Length;
+                if(firstTime)
+                    nervesSlider.value = 4;
+            }
+            
+            if(ligamentsLayers != null && ligamentsSlider != null)
+            {
+                ligamentsSlider.maxValue = ligamentsLayers.Length;
+                if(firstTime)
+                    ligamentsSlider.value = 1;
+            }
+            
+            if(muscularLayers != null && muscularSlider != null)
+                muscularSlider.maxValue = muscularLayers.Length;
 
             firstTime = false;
         }
@@ -230,20 +235,17 @@ public class Layers : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
 
-        StartCoroutine(SyncLayer(bonesLayersObjects, bonesSlider));
-        StartCoroutine(SyncLayer(ligamentsLayersObjects, ligamentsSlider));
-        StartCoroutine(SyncLayer(muscularLayersObjects, muscularSlider));
-        StartCoroutine(SyncLayer(fasciaLayersObjects, fasciaSlider));
-        StartCoroutine(SyncLayer(arteriesLayersObjects, arteriesSlider));
-        StartCoroutine(SyncLayer(veinsLayersObjects, veinsSlider));
-        StartCoroutine(SyncLayer(lymphsLayersObjects, lymphsSlider));
-        StartCoroutine(SyncLayer(visceralLayersObjects, visceralSlider));
-        StartCoroutine(SyncLayer(nervesLayersObjects, nervesSlider));
-        StartCoroutine(SyncLayer(skinLayersObjects, skinSlider));
-        StartCoroutine(SyncLayer(refsLayersObjects, refsSlider));
+        // Only sync existing systems
+        if(bonesLayersObjects != null && bonesSlider != null)
+            StartCoroutine(SyncLayer(bonesLayersObjects, bonesSlider));
+        if(ligamentsLayersObjects != null && ligamentsSlider != null)
+            StartCoroutine(SyncLayer(ligamentsLayersObjects, ligamentsSlider));
+        if(muscularLayersObjects != null && muscularSlider != null)
+            StartCoroutine(SyncLayer(muscularLayersObjects, muscularSlider));
+        if(nervesLayersObjects != null && nervesSlider != null)
+            StartCoroutine(SyncLayer(nervesLayersObjects, nervesSlider));
 
         SelectedObjectsManagement.Instance.GetActiveObjects();
-
     }
 
     private IEnumerator SyncLayer(List<GameObject>[] layerObjects, Slider slider)

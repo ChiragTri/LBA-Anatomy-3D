@@ -50,33 +50,30 @@ public class SelectedObjectsManagement : MonoBehaviour
     ///</summary>
     private void UpdateCrossSectionToggles()
     {
+        // Only check for systems that still exist
         bool skeletalActive = activeObjects.Find(it => it.CompareTag("Skeleton"));
         bool jointsActive = activeObjects.Find(it => it.CompareTag("Joints"));
         bool muscularActive = activeObjects.Find(it => it.CompareTag("Muscles"));
-        bool fasciaActive = activeObjects.Find(it => it.CompareTag("Fascia"));
-        bool arteriesActive = activeObjects.Find(it => it.CompareTag("Arteries"));
-        bool veinsActive = activeObjects.Find(it => it.CompareTag("Veins"));
-        bool lymphActive = activeObjects.Find(it => it.CompareTag("Lymph"));
         bool nervousActive = activeObjects.Find(it => it.CompareTag("Nervous"));
-        bool visceralActive = activeObjects.Find(it => it.CompareTag("Visceral"));
-        bool regionsActive = activeObjects.Find(it => it.CompareTag("BodyParts"));
-        bool referencesActive = activeObjects.Find(it => it.CompareTag("References"));
 
-        bool[] allBools = { skeletalActive, jointsActive, muscularActive, fasciaActive, veinsActive, arteriesActive, nervousActive, visceralActive, regionsActive, referencesActive };
-        
+        bool[] allBools = { skeletalActive, jointsActive, muscularActive, nervousActive };
         bool oneAtLeast = allBools.Where(it => it).Count() > 1;
 
-        CrossSections.Instance.skeletalToggle.transform.parent.gameObject.SetActive(skeletalActive && oneAtLeast);
-        CrossSections.Instance.jointsToggle.transform.parent.gameObject.SetActive(jointsActive && oneAtLeast);
-        CrossSections.Instance.muscularToggle.transform.parent.gameObject.SetActive(muscularActive && oneAtLeast);
-        CrossSections.Instance.fasciaToggle.transform.parent.gameObject.SetActive(fasciaActive && oneAtLeast);
-        CrossSections.Instance.arteriesToggle.transform.parent.gameObject.SetActive(arteriesActive && oneAtLeast);
-        CrossSections.Instance.veinsToggle.transform.parent.gameObject.SetActive(veinsActive && oneAtLeast);
-        CrossSections.Instance.lymphsToggle.transform.parent.gameObject.SetActive(lymphActive && oneAtLeast);
-        CrossSections.Instance.nervousToggle.transform.parent.gameObject.SetActive(nervousActive && oneAtLeast);
-        CrossSections.Instance.visceralToggle.transform.parent.gameObject.SetActive(visceralActive && oneAtLeast);
-        CrossSections.Instance.regionsToggle.transform.parent.gameObject.SetActive(regionsActive && oneAtLeast);
-        CrossSections.Instance.referencesToggle.transform.parent.gameObject.SetActive(referencesActive && oneAtLeast);
+        // Only update toggles for systems that still exist
+        if (CrossSections.Instance != null)
+        {
+            if (CrossSections.Instance.skeletalToggle != null)
+                CrossSections.Instance.skeletalToggle.transform.parent.gameObject.SetActive(skeletalActive && oneAtLeast);
+            
+            if (CrossSections.Instance.jointsToggle != null)
+                CrossSections.Instance.jointsToggle.transform.parent.gameObject.SetActive(jointsActive && oneAtLeast);
+            
+            if (CrossSections.Instance.muscularToggle != null)
+                CrossSections.Instance.muscularToggle.transform.parent.gameObject.SetActive(muscularActive && oneAtLeast);
+            
+            if (CrossSections.Instance.nervousToggle != null)
+                CrossSections.Instance.nervousToggle.transform.parent.gameObject.SetActive(nervousActive && oneAtLeast);
+        }
     }
 
     /// <summary>
